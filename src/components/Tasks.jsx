@@ -1,8 +1,19 @@
+import { ChevronRightIcon } from "lucide-react";
+
 function Tasks(props){
     return ( 
-    <ul className="space-y-4">
+    <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
         {props.tasks.map((task) => (
-        <li className="bg-slate-400 text-white p-2 rounded-md">{task.title}</li>
+        <li key={task.id} className="flex gap-2">
+            <button 
+                onClick={() => props.onTaskClick(task.id)}
+                className="bg-slate-400 w-full text-left text-base font-medium text-white p-2 rounded-md">
+                    {task.title}
+            </button>
+            <button className="bg-slate-400 text-white p-2 rounded-md text-base font-medium w-10">
+                <ChevronRightIcon/>
+            </button>
+        </li>
     ))}    
     </ul>
 );
