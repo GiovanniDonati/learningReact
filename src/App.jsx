@@ -28,11 +28,11 @@ function App() {
   function onTaskClick(taskId){
     const newTask = tasks.map(task => {
       if(task.id === taskId){
-        return {...task, isCompleted: !task.isCompleted}
+        return {... task, isCompleted: !task.isCompleted}
       }
       return task
     });
-    setTasks(newTask)
+    setTasks(newTask);
   }
 
   return (
