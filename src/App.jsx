@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddTasks from "./components/AddTasks";
 import Tasks from "./components/Tasks";
+import { MoonIcon } from "lucide-react";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -35,9 +36,14 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
+    <div className="w-screen h-lvh bg-white flex justify-center p-6">
+      <div className="absolute w-lvw flex justify-end pr-10 pt-2">
+        <button className="">
+          <MoonIcon className=" text-gray-800"/>
+        </button>
+      </div>
       <div className="w-[500px]">
-      <h1 className="text-3xl text-slate-100 font-bold text-center p-4">
+      <h1 className="text-3xl text-gray-800 font-bold text-center p-4">
         Control Tasks
       </h1>
 
