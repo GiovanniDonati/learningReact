@@ -35,6 +35,16 @@ function App() {
     setTasks(newTask);
   }
 
+  function onDeleteTaskClick(taskId){
+    const newTask = tasks.filter(task => task.id !== taskId);
+    setTasks(newTask);
+    }
+
+  function onAddTask(newTask){
+    setTasks([...tasks, newTask]);
+  }
+
+
   return (
     <div className="w-screen h-lvh bg-white flex justify-center p-6">
       <div className="absolute w-lvw flex justify-end pr-10 pt-2">
@@ -47,8 +57,8 @@ function App() {
         Control Tasks
       </h1>
 
-      <AddTasks/>
-      <Tasks tasks={tasks} onTaskClick={onTaskClick}/>
+      <AddTasks onAddTask={onAddTask}/>
+      <Tasks tasks={tasks} onTaskClick={onTaskClick} onDeleteTaskClick={onDeleteTaskClick}/>
       </div>
     </div>
   );
