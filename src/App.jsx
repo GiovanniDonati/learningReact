@@ -40,10 +40,15 @@ function App() {
     setTasks(newTask);
     }
 
-  function onAddTask(newTask){
+  function onAddTaskSubmit(title,description){
+    const newTask = {
+      id: tasks.length + 1,
+      title,
+      description,
+      isCompleted: false,
+    };
     setTasks([...tasks, newTask]);
   }
-
 
   return (
     <div className="w-screen h-lvh bg-white flex justify-center p-6">
@@ -52,12 +57,12 @@ function App() {
           <MoonIcon className=" text-gray-800"/>
         </button>
       </div>
-      <div className="w-[500px]">
-      <h1 className="text-3xl text-gray-800 font-bold text-center p-4">
+      <div className="w-[500px] space-y-4">
+      <h1 className="text-3xl text-gray-800 font-bold text-center">
         Control Tasks
       </h1>
 
-      <AddTasks onAddTask={onAddTask}/>
+      <AddTasks onAddTaskSubmit={onAddTaskSubmit}/>
       <Tasks tasks={tasks} onTaskClick={onTaskClick} onDeleteTaskClick={onDeleteTaskClick}/>
       </div>
     </div>
