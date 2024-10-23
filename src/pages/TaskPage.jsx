@@ -2,15 +2,11 @@ import { ArrowLeftCircleIcon } from "lucide-react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 function TaskPage() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const title = searchParams.get("title");
   const description = searchParams.get("description");
   console.log(title);
-
-  const navigate = useNavigate();
-  function returnHome() {
-    navigate("/");
-  }
 
   return (
     <div className="h-screen w-screen bg-white p-6 flex justify-center ">
@@ -27,7 +23,7 @@ function TaskPage() {
             {description}
           </p>
           <button
-            onClick={returnHome}
+            onClick={() => navigate(-1)}
             className="bg-blue-800 text-white flex gap-2 p-2 rounded-md w-24 h-10 hover:bg-blue-500 mt-2"
           >
             <ArrowLeftCircleIcon />
