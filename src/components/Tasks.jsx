@@ -6,7 +6,10 @@ function Tasks({tasks, onTaskClick, onDeleteTaskClick}){
     const navigate = useNavigate();
 
     function onSeeDetailsTask(task){
-        navigate(`/taskpage?title=${task.title}&description=${task.description}`);
+        const query = new URLSearchParams()
+        query.set('title', task.title)
+        query.set('description', task.description)
+        navigate(`/taskpage?title=${query.toString()}`);
     }
 
     return ( 

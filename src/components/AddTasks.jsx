@@ -31,8 +31,9 @@ function AddTasks({onAddTaskSubmit}){
                 setTitle("");
                 setDescription("");
             }}
-            className="bg-blue-500 p-2 font-normal rounded-md flex w-10">
+            className="bg-blue-800 self-end text-white text-base font-bold p-2 gap-2 rounded-md w-full flex justify-center hover:bg-blue-500">
             <CirclePlus />
+            Adicionar
         </button>
     </div>
     )
