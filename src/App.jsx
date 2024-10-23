@@ -8,6 +8,26 @@ function App() {
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
+  //Exemplo de API
+  /* useEffect(() => {
+    const fetchTasks = async () => {
+      //Chamar API
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos?_limit=10",
+        {
+          method: "GET",
+        }
+      );
+      
+      //Pegar o retorno
+      const data = await response.json();
+
+      //Armazenar/persistir os dados no state
+      setTasks(data);
+    };
+    fetchTasks();
+  }, []); */
+
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
