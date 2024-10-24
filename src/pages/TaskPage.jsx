@@ -1,5 +1,6 @@
 import { ArrowLeftCircleIcon } from "lucide-react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import Title from "../components/Title";
 
 function TaskPage() {
   const navigate = useNavigate();
@@ -11,9 +12,7 @@ function TaskPage() {
   return (
     <div className="h-screen w-screen bg-white p-6 flex justify-center ">
       <div className="w-[500] space-y-4">
-        <h1 className="text-3xl font-bold text-center text-black">
-          Detalhes da Tarefa
-        </h1>
+        <Title>Task Details</Title>
         <div className="w-[500px] bg-blue-100 p-4 rounded-md shadow ">
           <h2 className="p-2 bg-slate-50 text-black text-center text-xl font-bold rounded-t-md">
             {title}

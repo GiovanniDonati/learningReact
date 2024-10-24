@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AddTasks from "./components/AddTasks";
 import Tasks from "./components/Tasks";
 import { MoonIcon } from "lucide-react";
+import Title from "./components/Title";
 
 function App() {
   const [tasks, setTasks] = useState(
@@ -65,10 +66,7 @@ function App() {
         </button>
       </div>
       <div className="w-[500px] space-y-4">
-        <h1 className="text-3xl text-gray-800 font-bold text-center">
-          Control Tasks
-        </h1>
-
+        <Title>Tasks Control</Title>
         <AddTasks onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
