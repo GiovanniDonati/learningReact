@@ -1,5 +1,6 @@
 import { CirclePlus } from "lucide-react";
 import { useState } from "react";
+import Input from "./Input";
 
 function AddTasks({ onAddTaskSubmit }) {
   const [title, setTitle] = useState("");
@@ -8,14 +9,14 @@ function AddTasks({ onAddTaskSubmit }) {
 
   return (
     <div className="bg-blue-100 space-y-4 p-6 bg-white-100 rounded-md shadow flex flex-col">
-      <input
+      <Input
         className="bg-white p-2 rounded-md text-base font-medium text-black-400"
         type="text"
         placeholder="Digite o titulo da tarefa"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <input
+      <Input
         className="bg-white p-2 rounded-md text-base font-medium text-black-400"
         type="text"
         placeholder="Digite a descrição da tarefa"
