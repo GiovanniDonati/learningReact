@@ -9,6 +9,8 @@ function App() {
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
+  const [darkMode, setDarkMode] = useState(false);
+
   //Exemplo de API
   /* useEffect(() => {
     const fetchTasks = async () => {
@@ -59,17 +61,24 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-lvh bg-white flex justify-center p-6">
+    <div
+      className={`${
+        darkMode ? "bg-gray-900" : "bg-white"
+      } w-screen h-lvh flex justify-center p-6`}
+    >
       <div className="absolute w-lvw flex justify-end pr-10 pt-2">
         <button className="">
-          <MoonIcon className=" text-gray-800" />
+          <MoonIcon
+            onClick={() => setDarkMode(!darkMode)}
+            className={`${darkMode ? "text-white" : "text-gray-800"}`}
+          />
         </button>
       </div>
       <div className="w-[500px] space-y-4">
-        <Title>Tasks Control</Title>
-        <AddTasks onAddTaskSubmit={onAddTaskSubmit} />
+        <Title themeMode={darkMode}>Tasks Control</Title>
+        <AddTasks themeMode={darkMode} onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
-          themeMode={true}
+          themeMode={darkMode}
           tasks={tasks}
           onTaskClick={onTaskClick}
           onDeleteTaskClick={onDeleteTaskClick}

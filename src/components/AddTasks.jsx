@@ -2,13 +2,17 @@ import { CirclePlus } from "lucide-react";
 import { useState } from "react";
 import Input from "./Input";
 
-function AddTasks({ onAddTaskSubmit }) {
+function AddTasks({ onAddTaskSubmit, themeMode }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   console.log(title, description);
 
   return (
-    <div className="bg-blue-100 space-y-4 p-6 bg-white-100 rounded-md shadow flex flex-col">
+    <div
+      className={`${
+        themeMode ? "bg-gray-500" : "bg-blue-100"
+      } space-y-4 p-6 bg-white-100 rounded-md shadow flex flex-col`}
+    >
       <Input
         type="text"
         placeholder="Digite o titulo da tarefa"
@@ -22,7 +26,12 @@ function AddTasks({ onAddTaskSubmit }) {
         onChange={(event) => setDescription(event.target.value)}
       />
       <button
-        className="bg-blue-800 self-end text-white text-base font-bold p-2 gap-2 rounded-md w-full flex justify-center hover:bg-blue-500"
+        className={`${
+          themeMode
+            ? "bg-blue-300 text-black hover:bg-blue-200"
+            : "bg-blue-800 text-white whitehover:bg-blue-500"
+        }
+      self-end text-base font-bold p-2 gap-2 rounded-md w-full flex justify-center`}
         onClick={() => {
           if (!title.trim() || !description.trim()) {
             return alert("Preencha todos os campos");

@@ -12,7 +12,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick, themeMode }) {
     navigate(`/taskpage?${query.toString()}`);
   }
 
-  const themeDark = "bg-gray-800";
+  const themeDark = "bg-gray-500";
   const themeLight = "bg-blue-100";
 
   return (
