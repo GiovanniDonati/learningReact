@@ -69,6 +69,7 @@ function App() {
         <Title>Tasks Control</Title>
         <AddTasks onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
+          themeMode={true}
           tasks={tasks}
           onTaskClick={onTaskClick}
           onDeleteTaskClick={onDeleteTaskClick}
