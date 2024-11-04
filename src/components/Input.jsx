@@ -1,8 +1,12 @@
-function Input(props) {
-  return <input
-    className="bg-white p-2 rounded-md text-base font-medium text-black-400"
-    {...props}
-  />;
+function Input(themeMode, props) {
+  return (
+    <input
+      className={`${
+        themeMode ? "bg-gray-600 text-white" : "bg-white"
+      } p-2 rounded-md text-base font-medium`}
+      {...props}
+    />
+  );
 }
 
 export default Input;

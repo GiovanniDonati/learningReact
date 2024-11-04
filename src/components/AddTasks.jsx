@@ -10,16 +10,18 @@ function AddTasks({ onAddTaskSubmit, themeMode }) {
   return (
     <div
       className={`${
-        themeMode ? "bg-gray-500" : "bg-blue-100"
-      } space-y-4 p-6 bg-white-100 rounded-md shadow flex flex-col`}
+        themeMode ? "bg-neutral-900" : "bg-blue-100"
+      } space-y-4 p-6 rounded-md shadow flex flex-col`}
     >
       <Input
+        themeMode={themeMode}
         type="text"
         placeholder="Digite o titulo da tarefa"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
       <Input
+        themeMode={themeMode}
         type="text"
         placeholder="Digite a descrição da tarefa"
         value={description}
@@ -28,7 +30,7 @@ function AddTasks({ onAddTaskSubmit, themeMode }) {
       <button
         className={`${
           themeMode
-            ? "bg-blue-300 text-black hover:bg-blue-200"
+            ? "bg-blue-600 text-black hover:bg-blue-400"
             : "bg-blue-800 text-white whitehover:bg-blue-500"
         }
       self-end text-base font-bold p-2 gap-2 rounded-md w-full flex justify-center`}

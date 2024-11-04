@@ -63,7 +63,7 @@ function App() {
   return (
     <div
       className={`${
-        darkMode ? "bg-gray-900" : "bg-white"
+        darkMode ? "bg-neutral-800" : "bg-white"
       } w-screen h-lvh flex justify-center p-6`}
     >
       <div className="absolute w-lvw flex justify-end pr-10 pt-2">
