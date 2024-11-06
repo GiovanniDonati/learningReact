@@ -5,7 +5,6 @@ import Input from "./Input";
 function AddTasks({ onAddTaskSubmit, themeMode }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  console.log(title, description);
 
   return (
     <div

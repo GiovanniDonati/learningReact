@@ -1,5 +1,5 @@
 function Button({ darkMode, children, ...props }) {
-  const itsDark = "bg-blue-300 text-black hover:bg-blue-200";
+  const itsDark = "bg-blue-600 text-black hover:bg-blue-400";
   const itsLight = "bg-blue-800 text-white hover:bg-blue-500";
   return (
     <button
