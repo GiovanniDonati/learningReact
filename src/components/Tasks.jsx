@@ -5,10 +5,11 @@ import Button from "./Button";
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick, themeMode }) {
   const navigate = useNavigate();
 
-  function onSeeDetailsTask(task) {
+  function onSeeDetailsTask(task, themeMode) {
     const query = new URLSearchParams();
     query.set("title", task.title);
     query.set("description", task.description);
+    query.set("themeMode", themeMode);
     navigate(`/taskpage?${query.toString()}`);
   }
 
@@ -29,7 +30,10 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick, themeMode }) {
           >
             {task.title}
           </button>
-          <Button darkMode={themeMode} onClick={() => onSeeDetailsTask(task)}>
+          <Button
+            darkMode={themeMode}
+            onClick={() => onSeeDetailsTask(task, themeMode)}
+          >
             <ChevronRightIcon />
           </Button>
 

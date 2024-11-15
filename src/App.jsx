@@ -9,7 +9,13 @@ function App() {
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("darkMode")) || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   //Exemplo de API
   /* useEffect(() => {
@@ -66,7 +72,7 @@ function App() {
         darkMode ? "bg-neutral-800" : "bg-white"
       } w-screen h-lvh flex justify-center p-6`}
     >
-      <div className="absolute w-lvw flex justify-end pr-10 pt-2">
+      <div className="absolute flex justify-end pt-2 pr-10 w-lvw">
         <button className="">
           <MoonIcon
             onClick={() => setDarkMode(!darkMode)}
