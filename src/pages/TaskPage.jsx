@@ -16,10 +16,10 @@ function TaskPage() {
         isDarkMode ? "bg-neutral-800" : "bg-white"
       }`}
     >
-      <div className="w-[500] space-y-4">
+      <div className="w-[500px] max-lg:w-96 space-y-4">
         <Title themeMode={isDarkMode}>Task Details</Title>
         <div
-          className={`w-[500px]  p-4 rounded-md shadow ${
+          className={`w-[500px] max-lg:w-96 p-4 rounded-md shadow ${
             isDarkMode ? "bg-neutral-900" : "bg-blue-100"
           }`}
         >

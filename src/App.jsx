@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AddTasks from "./components/AddTasks";
 import Tasks from "./components/Tasks";
-import { MoonIcon } from "lucide-react";
+import { MoonIcon, SunIcon } from "lucide-react";
 import Title from "./components/Title";
 
 function App() {
@@ -73,12 +73,21 @@ function App() {
       } w-screen h-lvh flex justify-center p-6`}
     >
       <div className="absolute flex justify-end pt-2 pr-10 w-lvw">
-        <button className="">
-          <MoonIcon
-            onClick={() => setDarkMode(!darkMode)}
-            className={`${darkMode ? "text-white" : "text-gray-800"}`}
-          />
-        </button>
+        {darkMode ? (
+          <button>
+            <SunIcon
+              onClick={() => setDarkMode(!darkMode)}
+              className="text-white"
+            />
+          </button>
+        ) : (
+          <button className="">
+            <MoonIcon
+              onClick={() => setDarkMode(!darkMode)}
+              className="text-gray-800"
+            />
+          </button>
+        )}
       </div>
       <div className="w-[500px] space-y-4">
         <Title themeMode={darkMode}>Tasks Control</Title>
