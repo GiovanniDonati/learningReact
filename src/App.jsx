@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import AddTasks from "./components/AddTasks";
 import Tasks from "./components/Tasks";
-import { MoonIcon } from "lucide-react";
+import { MoonIcon, SunIcon } from "lucide-react";
 import Title from "./components/Title";
 
 function App() {
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem("tasks")) || []
   );
+
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("darkMode")) || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   //Exemplo de API
   /* useEffect(() => {
@@ -59,16 +67,33 @@ function App() {
   }
 
   return (
-    <div className="w-screen h-lvh bg-white flex justify-center p-6">
-      <div className="absolute w-lvw flex justify-end pr-10 pt-2">
-        <button className="">
-          <MoonIcon className=" text-gray-800" />
-        </button>
+    <div
+      className={`${
+        darkMode ? "bg-neutral-800" : "bg-white"
+      } w-screen h-lvh flex justify-center p-6`}
+    >
+      <div className="absolute flex justify-end pt-2 pr-10 w-lvw">
+        {darkMode ? (
+          <button>
+            <SunIcon
+              onClick={() => setDarkMode(!darkMode)}
+              className="text-white"
+            />
+          </button>
+        ) : (
+          <button className="">
+            <MoonIcon
+              onClick={() => setDarkMode(!darkMode)}
+              className="text-gray-800"
+            />
+          </button>
+        )}
       </div>
       <div className="w-[500px] space-y-4">
-        <Title>Tasks Control</Title>
-        <AddTasks onAddTaskSubmit={onAddTaskSubmit} />
+        <Title themeMode={darkMode}>Tasks Control</Title>
+        <AddTasks themeMode={darkMode} onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
+          themeMode={darkMode}
           tasks={tasks}
           onTaskClick={onTaskClick}
           onDeleteTaskClick={onDeleteTaskClick}

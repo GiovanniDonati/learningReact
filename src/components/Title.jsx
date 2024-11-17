@@ -1,6 +1,12 @@
-function Title({ children }) {
+function Title({ themeMode, children }) {
   return (
-    <h1 className="text-3xl font-bold text-center text-black">{children}</h1>
+    <h1
+      className={`${
+        themeMode ? "text-white" : "text-gray-800"
+      } text-3xl font-bold text-center`}
+    >
+      {children}
+    </h1>
   );
 }
 
